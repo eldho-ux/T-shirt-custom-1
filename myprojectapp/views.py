@@ -66,11 +66,12 @@ def create_tshirt(request):
 
             return redirect('tshirt_success')
         else:
-            print("Form is not valid")
-            print(form.errors)
+            print("Form errors:", form.errors)
 
     else:
         form = TShirtForm()
+
+
 
 
     return render(request, 'create_tshirt.html', {'form': form})
