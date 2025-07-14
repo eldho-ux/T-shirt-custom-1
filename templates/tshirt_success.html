@@ -1,0 +1,61 @@
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Success</title>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .card {
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+    }
+    .btn-apple {
+      background-color: #007aff;
+      border: none;
+      color: white;
+      font-weight: 500;
+      border-radius: 1.5rem;
+      padding: 0.6rem 1.5rem;
+      transition: background-color 0.3s ease;
+    }
+    .btn-apple:hover {
+      background-color: #005ecb;
+    }
+  </style>
+</head>
+<body>
+  <div class="card text-center">
+    <h2 class="mb-4">✅ T-Shirt Design Created!</h2>
+    <p class="text-muted mb-4">Your custom T-shirt was saved successfully.</p>
+
+    {% if tshirt %}
+      <div class="mb-3">
+        <h4>{{ tshirt.name }}</h4>
+        <p><strong>Size:</strong> {{ tshirt.size }}</p>
+        <p><strong>Color:</strong> {{ tshirt.color }}</p>
+        <p><strong>Price:</strong> ₹{{ tshirt.price }}</p>
+        {% if tshirt.design_image %}
+          <img src="{{ tshirt.design_image.url }}" alt="Design" style="max-width: 200px; border-radius: 8px;" class="mt-2">
+        {% endif %}
+      </div>
+    {% endif %}
+
+
+    <div class="d-flex justify-content-center gap-3">
+      <a href="{% url 'create_tshirt' %}" class="btn btn-apple">Create Another</a>
+      <a href="{% url 'home' %}" class="btn btn-outline-secondary rounded-pill px-4">Home</a>
+    </div>
+  </div>
+</body>
+</html>

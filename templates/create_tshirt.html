@@ -1,0 +1,44 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Custom T-Shirt</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script>
+      function updatePrice() {
+        const size = document.getElementById("id_size").value;
+        const priceMap = {
+          "S": 300,
+          "M": 350,
+          "L": 400,
+          "XL": 450
+        };
+        const price = priceMap[size] || 299;
+        document.getElementById("priceDisplay").textContent = "₹" + price;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const sizeField = document.getElementById("id_size");
+        if (sizeField) {
+          sizeField.addEventListener("change", updatePrice);
+          updatePrice();  // Set initial value
+        }
+      });
+    </script>
+</head>
+<body class="p-4">
+  <div class="container">
+    <h2>Create Your Custom T-Shirt</h2>
+    <form method="post" action="{% url 'create_tshirt' %}" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+
+      <div class="alert alert-info mt-2">
+        Estimated Price: <strong id="priceDisplay">₹...</strong>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+</body>
+</html>
