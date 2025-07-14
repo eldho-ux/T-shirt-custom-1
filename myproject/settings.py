@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['mightytusk.onrender.com']
+ALLOWED_HOSTS = ['https://mightytusk.onrender.com']
 
 
 # Application definition
