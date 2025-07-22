@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>ShopEase</title>
   <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
 </head>
 <body>
 
@@ -70,6 +71,7 @@
 </head>
 <body>
 
+
 <div class="text-center my-5">
   <h2 class="fw-bold mb-3">Design Your Own T-Shirt</h2>
   <p class="text-muted mb-4">Choose your color, size, and style to create something unique.</p>
@@ -80,7 +82,7 @@
 
   <!-- Product Showcase -->
   <section class="product-section">
-    <img src="{% static 'img/sample.jpg' %}" alt="T-shirt">
+    <img src="{% static 'img/sample.png' %}" alt="T-shirt">
     <h2 class="fw-semibold"></h2>
     <p class="lead text-muted fs-1">Starts at <strong>₹299</strong></p>
     <a href="#" class="btn btn-outline-dark btn-lg">Learn More</a>
@@ -94,7 +96,7 @@
 
     <!-- Cart Button with label -->
     <a href="{% url 'cart' %}" class="btn btn-dark position-fixed top-0 end-0 m-3 z-3 shadow">🛒</a>
-        </div>
+     </div>
 
   {% block content %}{% endblock %}
 
