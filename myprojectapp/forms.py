@@ -25,3 +25,16 @@ class TShirtForm(forms.ModelForm):
             self.fields['size'].widget.attrs.update({'class': 'form-control'})
         if 'image' in self.fields:
             self.fields['image'].widget.attrs.update({'class': 'form-control'})
+
+            # temporary
+
+            class NotificationForm(forms.ModelForm):
+                class Meta:
+                    model = LaunchNotification
+                    fields = ['phone_number']
+                    widgets = {
+                        'phone_number': forms.TextInput(attrs={
+                            'class': 'form-control',
+                            'placeholder': 'Enter your WhatsApp number'
+                        })
+                    }

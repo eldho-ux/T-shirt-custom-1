@@ -27,10 +27,11 @@ urlpatterns = [
     path('cart/',views.cart, name='cart'),
     path('custom/', views.custom_tshirt, name='custom_tshirt'),
     path('create/', views.create_tshirt, name='create_tshirt'),
-    path('tshirt_success/',views.tshirt_success, name='tshirt_success'),
+   # path('tshirt_success/',views.tshirt_success, name='tshirt_success'),
     path('remove-from-cart/<int:tshirt_id>/', views.remove_from_cart, name='remove_from_cart'),
     path('edit-cart-item/<int:tshirt_id>/', views.edit_cart_item, name='edit_cart_item'),
-
+    path('comingsoon', views.coming_soon, name='soon'),
+    path('', views.prototype_notice, name='prototype'),
 
 ]
 

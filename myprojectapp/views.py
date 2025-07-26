@@ -76,10 +76,25 @@ def create_tshirt(request):
 
     return render(request, 'create_tshirt.html', {'form': form})
 
-def tshirt_success(request):
-    tshirt_id = request.session.get('last_created_tshirt')
-    tshirt = TShirt.objects.get(id=tshirt_id) if tshirt_id else None
-    return render(request, 'tshirt_success.html', {'tshirt': tshirt})
+#def tshirt_success(request):
+ #   tshirt_id = request.session.get('last_created_tshirt')
+  #  tshirt = TShirt.objects.get(id=tshirt_id) if tshirt_id else None
+   # return render(request, 'tshirt_success.html', {'tshirt': tshirt})
+
+# temporary
+
+def coming_soon(request):
+    return render(request,'soon')
+
+def prototype_notice(request):
+    form = NotificationForm(request.POST or None)
+    submitted = False
+
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        submitted = True
+
+    return render(request, 'prototype.html', {'form': form, 'submitted': submitted})
 
 #U
 
